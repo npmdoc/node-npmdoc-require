@@ -1,0 +1,542 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/marcuswestin/require"
+
+    >require (v2.4.20)</a>
+</h1>
+<h4>javascript module management! brings node's require statement to the browser</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.require">module require</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">require.</span>compiler</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">require.</span>resolve</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">require.</span>server</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.require.compiler">module require.compiler</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.compiler.compile">
+            function <span class="apidocSignatureSpan">require.compiler.</span>compile
+            <span class="apidocSignatureSpan">(filePath, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.compiler.compileCode">
+            function <span class="apidocSignatureSpan">require.compiler.</span>compileCode
+            <span class="apidocSignatureSpan">(code, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.compiler.compileHTML">
+            function <span class="apidocSignatureSpan">require.compiler.</span>compileHTML
+            <span class="apidocSignatureSpan">(filePath, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.require.resolve">module require.resolve</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.resolve.path">
+            function <span class="apidocSignatureSpan">require.resolve.</span>path
+            <span class="apidocSignatureSpan">(searchPath, pathBase)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.resolve.requireStatement">
+            function <span class="apidocSignatureSpan">require.resolve.</span>requireStatement
+            <span class="apidocSignatureSpan">(requireStmnt, currentPath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">require.resolve.</span>_nodePaths</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.require.server">module require.server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.server.connect">
+            function <span class="apidocSignatureSpan">require.server.</span>connect
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.server.handleRequest">
+            function <span class="apidocSignatureSpan">require.server.</span>handleRequest
+            <span class="apidocSignatureSpan">(req, res)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.server.isRequireRequest">
+            function <span class="apidocSignatureSpan">require.server.</span>isRequireRequest
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.server.listen">
+            function <span class="apidocSignatureSpan">require.server.</span>listen
+            <span class="apidocSignatureSpan">(portOrOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require.server.mount">
+            function <span class="apidocSignatureSpan">require.server.</span>mount
+            <span class="apidocSignatureSpan">(server, _opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.require" id="apidoc.module.require">module require</a></h1>
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.require.compiler" id="apidoc.module.require.compiler">module require.compiler</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.require.compiler.compile" id="apidoc.element.require.compiler.compile">
+        function <span class="apidocSignatureSpan">require.compiler.</span>compile
+        <span class="apidocSignatureSpan">(filePath, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compileFile(filePath, opts) {
+	filePath = path.resolve(filePath)
+	opts = extend(opts, { basePath:path.dirname(filePath), toplevel:true })
+	var code = getCode(filePath)
+	return _compile(code, opts, filePath)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		connect.static(__dirname + &#x27;/example&#x27;),
+		require(&#x27;require/server&#x27;).connect()
+	)
+
+Compile programmatically:
+
+	var compiler = require(&#x27;require/compiler&#x27;)
+	console.log(compiler.<span class="apidocCodeKeywordSpan">compile</span>(&#x27;./example/client.js&#x27;))
+	console.log(compiler.compileCode(&#x27;require(&#x22;./example/client&#x22;)&#x27;))
+
+The compiler supports all the options of https://github.com/mishoo/UglifyJS, e.g.
+
+	compiler.compile(&#x27;./example/client.js&#x27;, { beautify:true, ascii_only:true })
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.compiler.compileCode" id="apidoc.element.require.compiler.compileCode">
+        function <span class="apidocSignatureSpan">require.compiler.</span>compileCode
+        <span class="apidocSignatureSpan">(code, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compileCode(code, opts) {
+	opts = extend(opts, { basePath:process.cwd(), toplevel:true })
+	return _compile(code, opts, &#x27;&#x3c;code passed into compiler.compile()&#x3e;&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		require(&#x27;require/server&#x27;).connect()
+	)
+
+Compile programmatically:
+
+	var compiler = require(&#x27;require/compiler&#x27;)
+	console.log(compiler.compile(&#x27;./example/client.js&#x27;))
+	console.log(compiler.<span class="apidocCodeKeywordSpan">compileCode</span>(&#x27;require(&#x22;./example/client&#x22;)&#x27;))
+
+The compiler supports all the options of https://github.com/mishoo/UglifyJS, e.g.
+
+	compiler.compile(&#x27;./example/client.js&#x27;, { beautify:true, ascii_only:true })
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.compiler.compileHTML" id="apidoc.element.require.compiler.compileHTML">
+        function <span class="apidocSignatureSpan">require.compiler.</span>compileHTML
+        <span class="apidocSignatureSpan">(filePath, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function compileHTMLFile(filePath, opts) {
+	var html = fs.readFileSync(filePath).toString()
+	while (match = html.match(/&#x3c;script src=&#x22;\/require\/([\/\w\.]+)&#x22;&#x3e;&#x3c;\/script&#x3e;/)) {
+		var js = compileFile(match[1].toString(), opts)
+		
+		var BACKREFERENCE_WORKAROUND = &#x27;____________backreference_workaround________&#x27;
+		js = js.replace(&#x27;\$\&#x26;&#x27;, BACKREFERENCE_WORKAROUND)
+		html = html.replace(match[0], &#x27;&#x3c;script&#x3e;&#x27;+js+&#x27;&#x3c;/script&#x3e;&#x27;)
+		html = html.replace(BACKREFERENCE_WORKAROUND, &#x27;\$\&#x26;&#x27;)
+	}
+	return html
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.require.resolve" id="apidoc.module.require.resolve">module require.resolve</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.require.resolve.path" id="apidoc.element.require.resolve.path">
+        function <span class="apidocSignatureSpan">require.resolve.</span>path
+        <span class="apidocSignatureSpan">(searchPath, pathBase)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolvePath(searchPath, pathBase) {
+	if (searchPath[0] == &#x27;.&#x27;) {
+		// relative path, e.g. require(&#x22;./foo&#x22;)
+		return _findModuleMain(path.resolve(pathBase, searchPath))
+	}
+	
+	var searchParts = searchPath.split(&#x27;/&#x27;)
+	var componentName = searchParts[searchParts.length - 1]
+	var name = searchParts.shift()
+	var rest = searchParts.join(&#x27;/&#x27;)
+	
+	// npm-style path, e.g. require(&#x22;npm&#x22;).
+	// Climb parent directories in search for &#x22;node_modules&#x22;
+	var modulePath = _findModuleMain(path.resolve(pathBase, &#x27;node_modules&#x27;, searchPath))
+	if (modulePath) { return modulePath }
+
+	if (pathBase != &#x27;/&#x27;) {
+		// not yet at the root - keep climbing!
+		return resolvePath(searchPath, path.resolve(pathBase, &#x27;..&#x27;))
+	}
+	
+	return &#x27;&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	function _normalizeURL(url) {
+		return url.replace(/\?.*/g, &#x27;&#x27;).replace(/\/js$/, &#x27;.js&#x27;)
+	}
+}
+
+function _handleMainModuleRequest(reqPath, req, res) {
+	var mainModulePath = resolve.<span class="apidocCodeKeywordSpan">path</span>(&#x27;./&#x27; + reqPath, opts.path)
+	if (!mainModulePath) { return _sendError(res, &#x27;Could not find module &#x22;&#x27;+reqPath+&#x27;&#x22; from &#x22;&#x27;+opts
+.path+&#x27;&#x22;&#x27;) }
+
+	try { var dependencyTree = getDependencyLevels(mainModulePath) }
+	catch(err) { return _sendError(res, &#x27;in getDependencyLevels: &#x27; + (err.message || err)) }
+	
+	var userAgent = req.headers[&#x27;user-agent&#x27;]
+	var isMobile = userAgent.match(&#x27;iPad&#x27;) || userAgent.match(&#x27;iPod&#x27;) || userAgent.match(&#x27;iPhone&#x27;) ||
+userAgent.match(&#x27;Android&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.resolve.requireStatement" id="apidoc.element.require.resolve.requireStatement">
+        function <span class="apidocSignatureSpan">require.resolve.</span>requireStatement
+        <span class="apidocSignatureSpan">(requireStmnt, currentPath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolveRequireStatement(requireStmnt, currentPath) {
+	var rawPath = requireStmnt.match(_pathnameGroupingRegex)[1]
+	var resolvedPath = resolvePath(rawPath, path.dirname(currentPath))
+	
+	if (!resolvedPath &#x26;&#x26; rawPath[0] != &#x27;.&#x27; &#x26;&#x26; rawPath[0] != &#x27;/&#x27;) {
+		for (var i=0; i&#x3c;_nodePaths.length; i++) {
+			resolvedPath = _findModuleMain(path.resolve(_nodePaths[i], rawPath))
+			if (resolvedPath) { break }
+		}
+	}
+	
+	if (!resolvedPath) { throw &#x27;Could not resolve &#x22;&#x27;+rawPath+&#x27;&#x22; in &#x22;&#x27;+currentPath+&#x27;&#x22;&#x27; }
+	return resolvedPath
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	if (!requireStatements.length) {
+		modules[modulePath] = code
+		return
+	}
+
+	each(requireStatements, function(requireStatement) {
+		var subModulePath = resolve.<span class="apidocCodeKeywordSpan">requireStatement</span>(requireStatement, modulePath)
+
+		if (!subModulePath) {
+			throw new Error(&#x22;Require Compiler Error: Cannot find module &#x27;&#x22;+ rawModulePath +&#x22;&#x27; (in &#x27;&#x22;+
+modulePath +&#x22;&#x27;)&#x22;)
+		}
+
+		code = code.replace(requireStatement, &#x27;__require__[&#x22;&#x27; + subModulePath + &#x27;&#x22;].exports&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.require.server" id="apidoc.module.require.server">module require.server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.require.server.connect" id="apidoc.element.require.server.connect">
+        function <span class="apidocSignatureSpan">require.server.</span>connect
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function connect(opts) {
+	setOpts(opts)
+	return _checkRequest
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	require(&#x27;require/server&#x27;).mount(server)
+	server.listen(8080, &#x27;localhost&#x27;)
+
+or, as connect middleware
+
+	connect.createServer(
+		connect.static(__dirname + &#x27;/example&#x27;),
+		require(&#x27;require/server&#x27;).<span class="apidocCodeKeywordSpan">connect</span>()
+	)
+
+Compile programmatically:
+
+	var compiler = require(&#x27;require/compiler&#x27;)
+	console.log(compiler.compile(&#x27;./example/client.js&#x27;))
+	console.log(compiler.compileCode(&#x27;require(&#x22;./example/client&#x22;)&#x27;))
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.server.handleRequest" id="apidoc.element.require.server.handleRequest">
+        function <span class="apidocSignatureSpan">require.server.</span>handleRequest
+        <span class="apidocSignatureSpan">(req, res)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleRequest(req, res) {
+	var reqPath = _normalizeURL(req.url).substr(opts.root.length + 2)
+	if (reqPath.match(/\.js$/)) {
+		_handleModuleRequest(reqPath, res)
+	} else {
+		_handleMainModuleRequest(reqPath, req, res)
+	}
+
+	function _normalizeURL(url) {
+		return url.replace(/\?.*/g, &#x27;&#x27;).replace(/\/js$/, &#x27;.js&#x27;)
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.server.isRequireRequest" id="apidoc.element.require.server.isRequireRequest">
+        function <span class="apidocSignatureSpan">require.server.</span>isRequireRequest
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isRequireRequest(req) {
+	return req.url.substr(1, opts.root.length) == opts.root
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.server.listen" id="apidoc.element.require.server.listen">
+        function <span class="apidocSignatureSpan">require.server.</span>listen
+        <span class="apidocSignatureSpan">(portOrOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listen(portOrOpts) {
+	var _opts = (isObject(portOrOpts) ? portOrOpts : { port:portOrOpts || 1234 })
+	opts.handleAllRequests = true
+	mount(http.createServer(), _opts).listen(opts.port, opts.host)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	require compile ./example/client.js &#x3e; client.min.js
+
+Use programmatically
+====================
+In node:
+
+	require(&#x27;require/server&#x27;).<span class="apidocCodeKeywordSpan">listen</span>(1234)
+
+or mount it on an http server you&#x27;re already running
+
+	var server = http.createServer(function(req, res) { })
+	require(&#x27;require/server&#x27;).mount(server)
+	server.listen(8080, &#x27;localhost&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require.server.mount" id="apidoc.element.require.server.mount">
+        function <span class="apidocSignatureSpan">require.server.</span>mount
+        <span class="apidocSignatureSpan">(server, _opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mount(server, _opts) {
+	setOpts(_opts)
+	return server.on(&#x27;request&#x27;, _checkRequest)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+In node:
+
+	require(&#x27;require/server&#x27;).listen(1234)
+
+or mount it on an http server you&#x27;re already running
+
+	var server = http.createServer(function(req, res) { })
+	require(&#x27;require/server&#x27;).<span class="apidocCodeKeywordSpan">mount</span>(server)
+	server.listen(8080, &#x27;localhost&#x27;)
+
+or, as connect middleware
+
+	connect.createServer(
+		connect.static(__dirname + &#x27;/example&#x27;),
+		require(&#x27;require/server&#x27;).connect()
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
